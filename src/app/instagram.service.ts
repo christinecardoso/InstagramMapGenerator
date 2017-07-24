@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/delay';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Config} from './config';
 
@@ -19,12 +18,12 @@ export class InstagramService {
   constructor(private http: Http) {
     this.headers = new Headers({ 'Content-Type': 'application/json' });
     this.options = new RequestOptions({ headers: this.headers });
-    this.key = new Config().getKey();
+    this.key = new Config().getKeyInstagram();
   }
   getInstagramMedia(): Promise<any> {
     const urlInstagram = this.url + this.key;
     return this.http.get(urlInstagram, this.options).toPromise()
-      .then(this.extractDataGet)
+      .then(this.extractData)
       .catch(this.handleError);
   }
   private handleError(error: any): Promise<any> {
@@ -33,8 +32,8 @@ export class InstagramService {
     return Promise.resolve(noResults);
   }
 
-  private extractDataGet(res: Response) {
+  private extractData(res: Response) {
     const body = res.json();
-    return body;
+    return body["data"];
   }
 }
