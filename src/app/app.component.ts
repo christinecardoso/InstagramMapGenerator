@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {InstagramService} from './instagram.service';
-import {GoogleService} from './google.service';
+import {GoogleService} from './Google.service';
+import {GeonameService} from './Geoname.service';
 import {Media} from './Media';
 import {Location} from './Location';
+import {Country} from './Country';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,7 @@ export class AppComponent {
   constructor(
     private instagramService: InstagramService,
     private googleService: GoogleService,
+    private geonameService: GeonameService
   ) {}
 
   getInstagramMedia() {
@@ -22,9 +25,9 @@ export class AppComponent {
       for (let i = 0; i < this.media.length; i++) {
         if(this.media[i].location !== null){
           let location = this.media[i].location;
-          this.googleService.getGeolocation(location.latitude,location.longitude).then(data => {
-            console.log(data);
-            //TODO get country code from address component
+          this.geonameService.getCountry(location.latitude,location.longitude).then(data => {
+            let country = data;
+            console.log(country.countryCode);
           });
         }
       }
