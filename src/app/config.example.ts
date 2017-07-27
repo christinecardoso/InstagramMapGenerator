@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class Config {
   private tokenInstagram: String = 'ENTER-INSTAGRAM-TOKEN';
   private tokenGoogle: String = 'ENTER-GOOGLE-TOKEN';
+  private tokenGeoname: String= 'ENTER-GEONAME-TOKEN';
   constructor() {
   }
   getKeyInstagram(): String {
@@ -11,5 +12,8 @@ export class Config {
   }
   getKeyGoogle(): String {
     return this.tokenGoogle;
+  }
+  getKeyGeoname(): String {
+    return this.tokenGeoname;
   }
 }

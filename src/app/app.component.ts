@@ -23,7 +23,6 @@ export class AppComponent {
   ) {}
 
   renderData() {
-    console.log(this.data);
     transmitData(this.data);
   }
 
@@ -41,7 +40,13 @@ export class AppComponent {
           });
         }
       }
-      this.renderData();
+      this.sleep(1000).then(() => {
+        this.renderData();
+      });
     });
   }
+
+  sleep(ms) {
+     return new Promise(resolve => setTimeout(resolve, ms));
+}
 }

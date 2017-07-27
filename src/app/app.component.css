@@ -1,0 +1,21 @@
+.navbar {
+    background-color: orange;
+    border-color: orange;
+}
+
+h4 {
+    color: white;
+    font-size: 25px;
+    margin-top: 0px;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    margin-top: 0px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}

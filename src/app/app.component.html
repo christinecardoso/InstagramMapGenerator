@@ -1,10 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!-- Header -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"><h4><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2000px-Instagram_logo_2016.svg.png" alt="W3Schools.com">&nbsp;Instagram Map Generator</h4></a>
+    </div>
+    <ul class="nav navbar-nav pull-right">
+      <li><a><button type="button" class="btn btn-default" (click)="getInstagramMedia()">Get Data</button></a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-lg-11 col-centered">
 <div style="text-align:center">
-  <h1>
-    Instagram Map Generator
-  </h1>
-  <button (click)="getInstagramMedia()">Get Data</button>
-  <div id="regions_div" style="width: 1000px; height: 600px;"></div>
+  <div id="regions_div"></div>
+</div>
 </div>
 
 
